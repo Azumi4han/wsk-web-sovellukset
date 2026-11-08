@@ -1,0 +1,106 @@
+:root {
+  --background: #f6f4ef;
+  --surface: #ffffff;
+  --ink: #1f2a2e;
+  --muted: #5c6b70;
+  --accent: #0e8da1;
+  --accent-dark: #0a6370;
+  --line: #d9e2dd;
+  --highlight: #fff3b0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--background);
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  color: var(--accent-dark);
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+}
+
+#status {
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+}
+
+th,
+td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  background-color: #e6f4f6;
+  color: var(--accent-dark);
+}
+
+.restaurant-row {
+  cursor: pointer;
+}
+
+.restaurant-row:hover {
+  background-color: #f0f7f8;
+}
+
+.highlight {
+  background-color: var(--highlight);
+  font-weight: bold;
+}
+
+dialog {
+  width: min(36rem, calc(100% - 2rem));
+  max-height: 90vh;
+  padding: 1.5rem;
+  overflow-y: auto;
+  border: 2px solid var(--accent-dark);
+  border-radius: 10px;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+dialog h2 {
+  margin-top: 0;
+  color: var(--accent-dark);
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+}
+
+dialog p {
+  margin: 0.4rem 0;
+}
+
+.menu-list {
+  padding-left: 1.4rem;
+}
+
+.error {
+  color: #a32638;
+}
+
+dialog button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--surface);
+  background-color: var(--accent-dark);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

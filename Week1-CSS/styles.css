@@ -1,0 +1,193 @@
+:root {
+  --ink: #1f2a2e;
+  --muted: #5c6b70;
+  --paper: #f7f4ee;
+  --card: #ffffff;
+  --blue: #0e8da1;
+  --blue-dark: #0a6370;
+  --accent: #b23a48;
+  --line: #d9e2dd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.page {
+  width: min(960px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.site-header {
+  margin-bottom: 1.5rem;
+}
+
+h1,
+h2 {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.15;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 6vw, 4.25rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  color: var(--blue-dark);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.card {
+  margin-top: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--card);
+  border-radius: 20px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+  border-bottom-color: currentColor;
+}
+
+a:focus-visible {
+  border-radius: 4px;
+}
+
+.page-image {
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-image img {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  border: 6px solid var(--card);
+  border-radius: 22px;
+}
+
+.page-image figcaption {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: bottom;
+  padding-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+thead th {
+  background: var(--blue-dark);
+  color: var(--card);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eaf2ed;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.topic-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topic-list li {
+  position: relative;
+  padding-left: 1.9rem;
+}
+
+.topic-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.site-footer {
+  padding: 2rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  a {
+    transition: none;
+  }
+}

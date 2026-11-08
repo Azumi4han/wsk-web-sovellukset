@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Bites – student restaurants</title>
+    <meta
+      name="description"
+      content="Browse Finnish student restaurants and their daily and weekly menus."
+    />
+    <link rel="icon" href="assets/cat.png" type="image/png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">
+          <img src="assets/cat.png" alt="" width="36" height="36" />
+          <span>Campus Bites</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-link is-active" href="#" aria-current="page"
+            >Restaurants</a
+          >
+          <a class="nav-link" href="#">Favorites</a>
+          <a class="nav-link" href="#">Profile</a>
+        </nav>
+
+        <a class="button button--outline" href="#">Log in</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1>You like restaurants? You like be a student?</h1>
+        <h1>You love Campus Bites ❤️</h1>
+        <p>Browse student restaurants and view their daily and weekly menus</p>
+      </section>
+
+      <div class="filters-wrap">
+        <img
+          class="filters-cat"
+          src="assets/cat_no_paws.png"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <section class="filters" aria-label="Filter restaurants">
+          <label class="filter-field">
+            <span>Search</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search by restaurant or address"
+            />
+          </label>
+
+          <label class="filter-field">
+            <span>City</span>
+            <select id="city-filter">
+              <option>All cities</option>
+            </select>
+          </label>
+
+          <label class="filter-field">
+            <span>Provider</span>
+            <select id="provider-filter">
+              <option>All providers</option>
+            </select>
+          </label>
+
+          <button
+            class="button button--primary"
+            id="filter-button"
+            type="button"
+          >
+            Search
+          </button>
+        </section>
+
+        <img
+          class="filters-paws"
+          src="assets/paws.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="content-grid">
+        <section
+          class="restaurant-list"
+          aria-labelledby="restaurant-list-title"
+        >
+          <div class="section-heading">
+            <h2 id="restaurant-list-title">Restaurants</h2>
+            <span class="result-count" id="restaurant-count">Loading…</span>
+          </div>
+          <p class="data-status" id="restaurant-data-status" role="status">
+            Loading restaurants..
+          </p>
+          <div class="restaurant-cards" id="restaurant-cards"></div>
+        </section>
+
+        <section
+          class="restaurant-detail"
+          id="menu"
+          aria-labelledby="detail-title"
+        >
+          <div class="detail-header">
+            <div>
+              <h2 id="detail-title">Select a restaurant</h2>
+              <p id="detail-address">
+                Choose a restaurant from the list to view its menu
+              </p>
+            </div>
+          </div>
+
+          <div class="detail-meta" id="detail-meta" hidden>
+            <span id="detail-company"></span>
+            <span id="detail-phone"></span>
+            <span id="detail-distance" hidden></span>
+          </div>
+
+          <div class="menu-tabs">
+            <button
+              class="menu-tab is-active"
+              type="button"
+              data-menu-tab="daily"
+            >
+              Daily menu
+            </button>
+            <button class="menu-tab" type="button" data-menu-tab="weekly">
+              Weekly menu
+            </button>
+          </div>
+
+          <div class="menu-panel" id="menu-panel">
+            <p class="data-status">Select a restaurant to view its menu.</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="map-section" aria-labelledby="map-title">
+        <div class="section-heading">
+          <h2 id="map-title">On the map</h2>
+          <span class="result-count">Restaurant locations</span>
+        </div>
+        <div class="map-placeholder">
+          <span>Map</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          Data source:
+          <a
+            href="https://media2.edu.metropolia.fi/restaurant/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Metropolia Restaurant API
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
