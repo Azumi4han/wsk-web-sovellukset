@@ -221,7 +221,6 @@ main {
   z-index: 0;
   width: 9rem;
   height: auto;
-  pointer-events: none;
   filter: drop-shadow(0 4px 6px rgb(31 42 46 / 16%));
 }
 
@@ -232,7 +231,6 @@ main {
   z-index: 3;
   width: 9rem;
   height: auto;
-  pointer-events: none;
   filter: drop-shadow(0 4px 6px rgb(31 42 46 / 16%));
 }
 
