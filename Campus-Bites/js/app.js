@@ -448,7 +448,7 @@ function formatDate(dateString) {
     return value;
   }
 
-  const formatted = date.toLocaleDateString("en-GB", {
+  const formatted = date.toLocaleDateString("fi-FI", {
     weekday: "long",
     day: "numeric",
     month: "long",
