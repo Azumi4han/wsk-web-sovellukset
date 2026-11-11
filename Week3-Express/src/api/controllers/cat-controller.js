@@ -139,11 +139,4 @@ const deleteCat = async (req, res, next) => {
   }
 };
 
-export {
-  getCats,
-  getCatById,
-  getCatsByUser,
-  postCat,
-  putCat,
-  deleteCat,
-};
+export {getCats, getCatById, getCatsByUser, postCat, putCat, deleteCat};

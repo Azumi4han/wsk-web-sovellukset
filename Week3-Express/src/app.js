@@ -1,10 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import api from './api/index.js';
-import {
-  errorHandler,
-  notFoundHandler,
-} from './middlewares/error-handlers.js';
+import {errorHandler, notFoundHandler} from './middlewares/error-handlers.js';
 
 const app = express();
 

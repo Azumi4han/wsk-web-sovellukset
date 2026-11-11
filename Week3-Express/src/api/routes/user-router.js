@@ -47,11 +47,6 @@ userRouter
     validationErrors,
     putUser
   )
-  .delete(
-    authenticateToken,
-    param('id').isInt(),
-    validationErrors,
-    deleteUser
-  );
+  .delete(authenticateToken, param('id').isInt(), validationErrors, deleteUser);
 
 export default userRouter;

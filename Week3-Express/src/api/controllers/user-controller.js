@@ -67,8 +67,7 @@ const putUser = async (req, res, next) => {
     }
 
     const isAdmin = res.locals.user.role === 'admin';
-    const isSelf =
-      Number(res.locals.user.user_id) === Number(req.params.id);
+    const isSelf = Number(res.locals.user.user_id) === Number(req.params.id);
 
     if (!isAdmin && !isSelf) {
       next(createError('Forbidden', 403));
@@ -112,8 +111,7 @@ const deleteUser = async (req, res, next) => {
     }
 
     const isAdmin = res.locals.user.role === 'admin';
-    const isSelf =
-      Number(res.locals.user.user_id) === Number(req.params.id);
+    const isSelf = Number(res.locals.user.user_id) === Number(req.params.id);
 
     if (!isAdmin && !isSelf) {
       next(createError('Forbidden', 403));

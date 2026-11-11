@@ -53,7 +53,13 @@ const addCat = async (cat) => {
 };
 
 const modifyCat = async (cat, id) => {
-  const allowedFields = ['cat_name', 'weight', 'owner', 'filename', 'birthdate'];
+  const allowedFields = [
+    'cat_name',
+    'weight',
+    'owner',
+    'filename',
+    'birthdate',
+  ];
   const fields = [];
   const values = [];
 

@@ -46,11 +46,6 @@ catRouter
     validationErrors,
     putCat
   )
-  .delete(
-    authenticateToken,
-    param('id').isInt(),
-    validationErrors,
-    deleteCat
-  );
+  .delete(authenticateToken, param('id').isInt(), validationErrors, deleteCat);
 
 export default catRouter;
