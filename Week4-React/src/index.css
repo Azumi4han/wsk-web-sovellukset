@@ -1,0 +1,154 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #242424;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* media item table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+td button,
+td a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+td button:hover,
+td a:hover {
+  background-color: #111;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/* navigation */
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style-type: none;
+  background-color: #333;
+  border-radius: 6px;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #111;
+}
+
+/* single media view */
+.single header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.single h2 {
+  margin: 0;
+}
+
+.single img,
+.single video {
+  display: block;
+  max-height: 60vh;
+  margin: 1rem 0;
+  object-fit: contain;
+}
+
+.single dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.single dt {
+  font-weight: bold;
+}
+
+.single dd {
+  margin: 0;
+}
+
+button.back {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #b23a48;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.back:hover {
+  background-color: #8d2c38;
+}
+
+/* error message */
+.error {
+  padding: 1rem;
+  border: 1px solid #b23a48;
+  border-radius: 6px;
+  background-color: #fbeaec;
+  color: #8d2c38;
+}
