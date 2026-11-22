@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>safka · student restaurant menus</title>
+    <meta
+      name="description"
+      content="Today's and this week's menus from Finnish student restaurants, on a list and a map."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="assets/cat.webp" type="image/webp" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./"
+        ><img src="assets/cat.webp" alt="" width="34" height="31" />safka</a
+      >
+      <button id="login-button" type="button">Log in</button>
+      <button id="profile-button" type="button" hidden>
+        <img
+          id="avatar"
+          src="assets/cat.webp"
+          alt=""
+          width="28"
+          height="28"
+        /><span id="username"></span>
+      </button>
+    </header>
+
+    <main>
+      <h1>What's for lunch?</h1>
+      <p class="lead">
+        Today's and this week's menus from student restaurants all over Finland.
+      </p>
+
+      <div class="filters" role="search">
+        <img class="cat" src="assets/cat_no_paws.webp" alt="" />
+        <label
+          >Search
+          <input
+            id="search"
+            type="search"
+            placeholder="Restaurant, street or city"
+        /></label>
+        <label
+          >Company
+          <select id="company">
+            <option value="">All</option>
+            <option>Sodexo</option>
+            <option>Compass Group</option>
+          </select>
+        </label>
+        <label
+          >City
+          <select id="city">
+            <option value="">All cities</option>
+          </select>
+        </label>
+        <img class="paws" src="assets/paws.webp" alt="" />
+      </div>
+
+      <div class="layout">
+        <section>
+          <h2>Restaurants <span id="result-count"></span></h2>
+          <ul id="restaurant-list">
+            <li class="status">Loading restaurants…</li>
+          </ul>
+        </section>
+
+        <aside>
+          <div id="map"></div>
+          <div id="details-card" class="card">
+            <p id="no-selection" class="status">
+              Pick a restaurant from the list or the map.
+            </p>
+            <article id="details" hidden>
+              <h2 id="details-name"></h2>
+              <p id="details-address"></p>
+              <p id="details-info" class="status"></p>
+              <button id="favourite-button" type="button"></button>
+              <div class="tabs">
+                <button id="daily-tab" type="button" class="active">
+                  Today
+                </button>
+                <button id="weekly-tab" type="button">This week</button>
+              </div>
+              <div id="daily-menu"></div>
+              <div id="weekly-menu" hidden></div>
+              <p class="legend">
+                G gluten-free · L lactose-free · VL low lactose · M milk-free ·
+                Veg vegan
+              </p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      Menus from the
+      <a href="https://media2.edu.metropolia.fi/restaurant/"
+        >Metropolia student restaurant API</a
+      >
+      · map ©
+      <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+      contributors
+    </footer>
+
+    <!-- Log in / sign up window -->
+    <dialog id="auth-dialog">
+      <form method="dialog">
+        <button class="close" aria-label="Close">✕</button>
+      </form>
+      <h2>Welcome!</h2>
+      <p class="status">Log in to save your favourite restaurant.</p>
+      <div class="tabs">
+        <button id="login-tab" type="button" class="active">Log in</button>
+        <button id="signup-tab" type="button">Sign up</button>
+      </div>
+      <form id="login-form" class="stack">
+        <label
+          >Username
+          <input name="username" required autocomplete="username" autofocus
+        /></label>
+        <label
+          >Password
+          <input
+            name="password"
+            type="password"
+            required
+            autocomplete="current-password"
+        /></label>
+        <p id="login-message" class="message"></p>
+        <button class="primary">Log in</button>
+      </form>
+      <form id="signup-form" class="stack" hidden>
+        <label
+          >Username
+          <input name="username" required minlength="3" autocomplete="username"
+        /></label>
+        <label
+          >Email <input name="email" type="email" required autocomplete="email"
+        /></label>
+        <label
+          >Password
+          <input
+            name="password"
+            type="password"
+            required
+            minlength="5"
+            autocomplete="new-password"
+        /></label>
+        <p id="signup-message" class="message"></p>
+        <button class="primary">Create account</button>
+      </form>
+    </dialog>
+
+    <!-- Profile window -->
+    <dialog id="profile-dialog">
+      <form method="dialog">
+        <button class="close" aria-label="Close">✕</button>
+      </form>
+      <h2>Your profile</h2>
+      <form id="profile-form" class="stack">
+        <img
+          id="profile-avatar"
+          src="assets/cat.webp"
+          alt="Your avatar"
+          width="72"
+          height="72"
+        />
+        <label
+          >New avatar <input name="avatar" type="file" accept="image/*"
+        /></label>
+        <p class="status">Favourite restaurant: <b id="favourite-name"></b></p>
+        <label
+          >Username
+          <input
+            name="username"
+            required
+            minlength="3"
+            autocomplete="username"
+            autofocus
+        /></label>
+        <label
+          >Email <input name="email" type="email" required autocomplete="email"
+        /></label>
+        <label
+          >New password
+          <input
+            name="password"
+            type="password"
+            minlength="5"
+            autocomplete="new-password"
+            placeholder="Leave empty to keep the old one"
+        /></label>
+        <p id="profile-message" class="message"></p>
+        <button class="primary">Save</button>
+      </form>
+      <div class="or">
+        <hr />
+        OR
+        <hr />
+      </div>
+      <p class="row">
+        <button id="logout-button" type="button">Log out</button>
+        <button id="delete-button" type="button" class="danger">
+          Delete account
+        </button>
+      </p>
+    </dialog>
+
+    <p id="toast" role="status" hidden></p>
+  </body>
+</html>
