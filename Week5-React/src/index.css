@@ -1,0 +1,249 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #242424;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* media item table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+td button,
+td a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+td button:hover,
+td a:hover {
+  background-color: #111;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/* navigation */
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style-type: none;
+  background-color: #333;
+  border-radius: 6px;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #111;
+}
+
+/* single media view */
+.single header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.single h2 {
+  margin: 0;
+}
+
+.single img,
+.single video {
+  display: block;
+  max-height: 60vh;
+  margin: 1rem 0;
+  object-fit: contain;
+}
+
+.single dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.single dt {
+  font-weight: bold;
+}
+
+.single dd {
+  margin: 0;
+}
+
+button.back {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #b23a48;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.back:hover {
+  background-color: #8d2c38;
+}
+
+/* error message */
+.error {
+  padding: 1rem;
+  border: 1px solid #b23a48;
+  border-radius: 6px;
+  background-color: #fbeaec;
+  color: #8d2c38;
+}
+
+/* greeting in the navigation */
+nav .greeting {
+  margin-right: auto;
+  padding: 1rem;
+  color: #fff;
+}
+
+/* forms (login, register, upload) */
+form {
+  display: grid;
+  gap: 1rem;
+  max-width: 420px;
+}
+
+form h2,
+form p {
+  margin: 0;
+}
+
+form div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+}
+
+form button,
+button.switch {
+  justify-self: start;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+form button:hover,
+button.switch:hover {
+  background-color: #111;
+}
+
+form button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+button.switch {
+  margin-top: 1rem;
+  padding: 0;
+  background-color: transparent;
+  color: #333;
+  text-decoration: underline;
+}
+
+button.switch:hover {
+  background-color: transparent;
+  color: #111;
+}
+
+/* profile */
+.profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+}
+
+.profile dt {
+  font-weight: bold;
+}
+
+.profile dd {
+  margin: 0;
+}
+
+/* success message */
+.success {
+  padding: 1rem;
+  border: 1px solid #2b8a3e;
+  border-radius: 6px;
+  background-color: #ebfbee;
+  color: #2b8a3e;
+}
